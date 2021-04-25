@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue</title>
+  <script defer src="https://unpkg.com/vue@2"></script>
+  <script defer src="./main.js"></script>
+</head>
+<body>
+  
+  <div id="root">
+    
+    <ul>
+      <li v-for="coord in coordinates">{{ coord }}</li>
+    </ul>
+
+    <ul>
+      <!-- automatically set the text-content -->
+      <li v-for="coord in coordinates" v-text="coord"></li>
+    </ul>
+
+
+    <!-- output value in data-model named 'message' -->
+    <p>The value of input: {{ message }}</p>
+  </div>
+
+</body>
+</html>
