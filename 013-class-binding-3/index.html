@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue</title>
+  <script defer src="https://unpkg.com/vue@2"></script>
+  <script defer src="./main.js"></script>
+  <style>
+    .color-red {
+      color: red;
+    }
+    .is-loading {
+      background: yellow;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="root">
+    
+    <h1 :class="className">Hello World</h1>
+
+    <h1 :class="{ 'is-loading' : true }">Loading</h1>
+    <h1 :class="{ 'is-loading' : false }">Not Loading</h1>
+
+    <h1 :class="{ 'is-loading' : isLoading }">Toggle with button!</h1>
+
+    <button @click="f_click">Submit</button>
+    
+  </div>
+
+</body>
+</html>
