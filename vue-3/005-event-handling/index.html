@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 3</title>
+  <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+  
+  <div id="app">
+    <h1 v-text="product">Product goes here</h1>
+    <h1                 >((product))</h1>
+    <p v-text="description"></p>
+
+    <!-- v-bind dynamically binds an attribute to an expression -->
+    <img v-bind:src="image" alt="">
+    <img       :src="image" alt="">
+    <a         :href="url">Google</a>
+    <div       :class="isActive"></div>
+    <span      :style="isActive"></span>
+    <span      :disabled="isDisabled"></span>
+
+    <div style="border: solid hotpink 5px;">
+      <p v-if="inStock">In Stock</p>
+      <p v-else>Out of Stock</p>
+    </div>
+
+    <div style="border: solid darkorchid 5px;">
+      <p v-if="inventory > 10">In Stock</p>
+      <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out!</p>
+      <p v-else>Out of Stock</p>
+    </div>
+
+    <ul style="border: solid lightblue 5px;">
+      <li v-for="detail in details">((detail))</li>
+    </ul>
+
+    <ul style="border: solid lightgreen 5px;">
+      <li v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant)">((variant.id)) ((variant.color))</li>
+    </ul>
+
+    <div style="border: solid lightseagreen 5px;">
+      <p>((cart))</p>
+      <button v-on:click="cart += 1">v-on:click="cart += 1"</button>
+      <button v-on:click="addToCart">v-on:click="addToCart"</button>
+      <button     @click="addToCart">@click="addToCart"</button>
+    </div>
+    
+        
+  </div>
+
+  <!-- Import App -->
+  <script src="./main.js"></script>
+
+  <!-- Mount App -->
+  <script>
+    const mountedApp = app.mount('#app');
+
+    mountedApp.product = 'Shoes';
+    mountedApp.inStock = false;
+  </script>
+
+</body>
+</html>
