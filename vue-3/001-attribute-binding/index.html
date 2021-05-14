@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 3</title>
+  <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+  
+  <div id="app">
+    <h1 v-text="product">Product goes here</h1>
+    <p v-text="description"></p>
+
+    <!-- v-bind dynamically binds an attribute to an expression -->
+    <img v-bind:src="image" alt="">
+    <img       :src="image" alt="">
+    <a         :href="url">Google</a>
+    <div       :class="isActive"></div>
+    <span      :style="isActive"></span>
+    <span      :disabled="isDisabled"></span>
+  </div>
+
+  <!-- Import App -->
+  <script src="./main.js"></script>
+
+  <!-- Mount App -->
+  <script>
+    const mountedApp = app.mount('#app');
+
+    mountedApp.product = 'Shoes';
+  </script>
+
+</body>
+</html>
