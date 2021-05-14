@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 3</title>
+  <script src="https://unpkg.com/vue@3"></script>
+  <style>
+    .disabledClass {
+      border: dashed hotpink 10px;
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="app">
+    <h1 v-text="product">Product goes here</h1>
+    <h1>((product))</h1>
+    <h1>((brand + ' ' + product))</h1>
+    
+    <!-- Computed Property: (same as above) -->
+    <h1>(( title ))</h1>
+    <p v-text="description"></p>
+
+    <!-- v-bind dynamically binds an attribute to an expression -->
+    <img v-bind:src="image" height=50>
+    <img       :src="image" height=50>
+    <a         :href="url">Google</a>
+    <div       :class="isActive"></div>
+    <span      :style="isActive"></span>
+    <span      :disabled="isDisabled"></span>
+
+    <div style="border: solid hotpink 5px;">
+      <p v-if="inStock">In Stock</p>
+      <p v-else>Out of Stock</p>
+    </div>
+
+    <ul style="border: solid lightblue 5px;">
+      <li v-for="detail in details">((detail))</li>
+    </ul>
+
+    <ul style="border: solid lightgreen 5px;">
+      <li v-for="(variant, idx) in variants" 
+          :key="variant.id" 
+          @mouseover="updateVariant(idx)"
+          :style="{ backgroundColor: variant.color }"
+      >
+        ((variant.id)) ((variant.color))
+      </li>
+      <div :style="(( josh_style ))">Style Binding: Objects</div>
+    </ul>
+
+    <div style="border: solid lightseagreen 5px;">
+      <p>((cart))</p>
+      <button v-on:click="cart += 1">v-on:click="cart += 1"</button>
+      <button v-on:click="addToCart">v-on:click="addToCart"</button>
+      <button     @click="addToCart">@click="addToCart"</button>
+    </div>
+
+    <button :disabled="!inStock" :class="{ disabledClass: !inStock }" @click="">Add To Cart</button>
+    
+        
+  </div>
+
+  <!-- Import App -->
+  <script src="./main.js"></script>
+
+  <!-- Mount App -->
+  <script>
+    const mountedApp = app.mount('#app');
+
+    mountedApp.product = 'Shoes';
+  </script>
+
+</body>
+</html>
