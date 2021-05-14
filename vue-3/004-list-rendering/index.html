@@ -32,6 +32,15 @@
       <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out!</p>
       <p v-else>Out of Stock</p>
     </div>
+
+    <ul style="border: solid lightblue 5px;">
+      <li v-for="detail in details">((detail))</li>
+    </ul>
+
+    <ul style="border: solid lightgreen 5px;">
+      <li v-for="variant in variants" :key="variant.id">((variant.id)) ((variant.color))</li>
+    </ul>
+    
   </div>
 
   <!-- Import App -->

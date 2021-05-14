@@ -6,12 +6,7 @@ const options_obj = {
       image: './assets/img/socks.png',
       url: 'https://www.google.com',
       inStock: true,
-      inventory: 5,
-      details: ['a', 'b', 'c'],
-      variants: [
-        {id: 1, color: 'green'}, 
-        {id: 2, color: 'blue'}
-      ]
+      inventory: 5
     };
   },
   delimiters: ["((", "))"]
