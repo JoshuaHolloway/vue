@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 3</title>
+  <script src="https://unpkg.com/vue@3"></script>
+  <style>
+    .disabledClass {
+      background: hotpink;
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="app">
+    <p>((cart.length))</p>
+
+    <!-- id passed into updateCart in main.js is generated at event-emitter in PdouctDisplay.js -->
+    <product-display :premium="premium" @add-to-cart="updateCart"></product-display>
+    <!-- add-to-cart is a listener that listens for add-to-cart event to be emmited  -->
+
+  </div>
+
+  <!-- Import App -->
+  <script src="./main.js"></script>
+  <script src="./components/ProductDisplay.js"></script>
+  <script src="./components/ReviewForm.js"></script>
+  <script src="./components/ReviewList.js"></script>
+
+  <!-- Mount App -->
+  <script>
+    const mountedApp = app.mount('#app');
+    mountedApp.product = 'Shoes';
+  </script>
+
+</body>
+</html>
